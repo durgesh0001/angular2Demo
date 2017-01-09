@@ -21,7 +21,7 @@ import {Login} from './Login';
 @RouteConfig([
     {path: '/users', name: 'Users', component:MyUsers},
     {path: '/add', name: 'Add', component: AddUsers},
-    {path: '/login', name: 'Login', component: Login,useAsDefault:true}
+    {path: '/', name: 'Users', component:MyUsers,useAsDefault:true}
 
 ])
 

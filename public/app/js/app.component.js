@@ -43,7 +43,7 @@ System.register(['angular2/core', 'angular2/router', './users/app.users', './use
                     router_1.RouteConfig([
                         { path: '/users', name: 'Users', component: app_users_1.MyUsers },
                         { path: '/add', name: 'Add', component: app_addUsers_1.AddUsers },
-                        { path: '/login', name: 'Login', component: Login_1.Login, useAsDefault: true }
+                        { path: '/', name: 'Users', component: app_users_1.MyUsers, useAsDefault: true }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
