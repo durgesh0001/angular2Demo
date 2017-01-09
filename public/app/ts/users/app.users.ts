@@ -9,6 +9,7 @@ import {NgTableComponent, NgTableFilteringDirective, NgTablePagingDirective, NgT
 import {Pagination} from '../pagination.component';
 import {SearchPipe} from '../customPipes/searchPipes';
 import {dbService} from '../services/dbServices';
+import {ROUTER_DIRECTIVES, Router, Location} from "angular2/router";
 
 @Component({
     selector: 'my-users',
@@ -47,7 +48,7 @@ export class MyUsers {
     firstnamemodelvalue= "";
     emailmodelvalue = "";
     userpasswordvalue = "";
-    constructor(private _httpservice:Httpservices,private builder: FormBuilder,private _dbservicee:dbService)
+    constructor(private _httpservice:Httpservices,private builder: FormBuilder,private _dbservicee:dbService,private router:Router, private location:Location)
     {    //edit module start
         this.username = new Control('', Validators.required)
         this.firstname = new Control('', Validators.required)
@@ -96,7 +97,9 @@ export class MyUsers {
                     error => console.log(JSON.stringify(error)),
                     () => console.log("finish")
                 )
-            alert("record saved");
+            alert("record updated");
+            this.location.replaceState('/users');
+            this.router.navigate(['Users']);
 
         }
     }
