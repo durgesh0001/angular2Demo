@@ -1,0 +1,39 @@
+
+<div class="container">
+    <h2>Add User</h2>
+
+    <form [ngFormModel]="registrationForm" (ngSubmit)="registerUser(registrationForm.value,registrationForm.valid)">
+
+        <div class="form-group" [ngClass]="{ 'has-error' : !username.valid && submitAttempt }">
+            <label class="control-label" for="username">Username</label>
+            <em *ngIf="!username.valid && submitAttempt">Required</em>
+            <input id="username" type="text" class="form-control" placeholder="Username" ngControl="username">
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error' : !firstname.valid && submitAttempt }">
+            <label class="control-label" for="firstname">First Name</label>
+            <em *ngIf="!firstname.valid && submitAttempt">Required</em>
+            <input id="firstname" type="text" class="form-control" placeholder="First Name" ngControl="firstname">
+        </div>
+
+
+
+        <div class="form-group" [ngClass]="{ 'has-error' : !email.valid && submitAttempt }">
+            <label class="control-label" for="email">Email</label>
+            <em *ngIf="!email.valid && submitAttempt">Required</em>
+            <input id="email" type="text" class="form-control" placeholder="Email" ngControl="email">
+        </div>
+
+        <div class="form-group" [ngClass]="{ 'has-error' : !password.valid && submitAttempt }">
+            <label class="control-label" for="password">Password</label>
+            <em *ngIf="password.hasError('required') && submitAttempt">Required</em>
+            <em *ngIf="password.hasError('minlength') && submitAttempt">Must be at least 8 characters</em>
+            <input id="password" type="password" class="form-control" placeholder="Password" ngControl="password">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+
+    </form>
+</div>
+

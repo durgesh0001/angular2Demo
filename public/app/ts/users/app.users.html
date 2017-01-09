@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users list</title>
+</head>
+<body>
+<div class="container">
+    <!-- Trigger the modal with a button -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit User</h4>
+                </div>
+                <div class="modal-body">
+                    <form [ngFormModel]="registrationForm" (ngSubmit)="editUser(registrationForm.value,registrationForm.valid)">
+
+                        <div class="form-group" [ngClass]="{ 'has-error' : !username.valid && submitAttempt }">
+                            <label class="control-label" for="username">Username</label>
+                            <em *ngIf="!username.valid && submitAttempt">Required</em>
+                            <input id="username" [(ngModel)]="usernamemodelvalue" type="text" class="form-control" placeholder="Username" ngControl="username">
+                        </div>
+                        <div class="form-group" [ngClass]="{ 'has-error' : !firstname.valid && submitAttempt }">
+                            <label class="control-label" for="firstname">First Name</label>
+                            <em *ngIf="!firstname.valid && submitAttempt">Required</em>
+                            <input id="firstname" [(ngModel)]="firstnamemodelvalue" type="text" class="form-control" placeholder="First Name" ngControl="firstname">
+                        </div>
+                        <div class="form-group" [ngClass]="{ 'has-error' : !password.valid && submitAttempt }">
+                            <label class="control-label" for="password" hidden>Password</label>
+                            <em *ngIf="password.hasError('required') && submitAttempt">Required</em>
+                            <em *ngIf="password.hasError('minlength') && submitAttempt">Must be at least 8 characters</em>
+                            <input id="password" type="hidden" [(ngModel)]="userpasswordvalue" class="form-control" placeholder="Password" ngControl="password">
+                        </div>
+
+
+
+                        <div class="form-group" [ngClass]="{ 'has-error' : !email.valid && submitAttempt }">
+                            <label class="control-label" for="email">Email</label>
+                            <em *ngIf="!email.valid && submitAttempt">Required</em>
+                            <input id="email" type="text" [(ngModel)]="emailmodelvalue" class="form-control" placeholder="Email" ngControl="email">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Edit</button>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"  data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <p>Users list</p>
+    <!--<button (click)="ontestget()">click here</button>-->
+
+    <input type="text" [(ngModel)]="searchbyName" name="search">
+
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <td>
+                Username
+            </td>
+            <td>
+                Email
+            </td>
+            <td>
+                Firstname
+            </td>
+            <td>
+                Action
+            </td>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr *ngFor="#v of result | search:searchbyName"><!--  -->
+            <td>
+                {{v.username}}
+            </td>
+            <td>
+                {{v.email}}
+
+            </td>
+            <td>
+                {{v.firstname}}
+            </td>
+            <td>
+                <button type="button" class="btn btn-info" data-toggle="modal" (click)="openmodel(v)" data-target="#myModal">Edit</button>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+<!--<div class="row">-->
+
+    <!--<h4>Angular 2 Pagination Example</h4> <br>-->
+    <!--<span class="text-danger"> The selected page<span class="badge">{{currentSelectedPage}}</span> </span> <br>-->
+    <!--<span class="text-danger"> Totoal items per page<span class="badge">{{currentItemsPerPage}}</span> </span> <br>-->
+
+    <!--<div class="form-group">-->
+        <!--{{result[currentPage-1]| json}}-->
+
+    <!--</div>-->
+    <!--<div class="form-group">-->
+        <!--<pagination [boundaryLinks]="true" [totalItems]="totalResults"-->
+                    <!--[(ngModel)]="currentPage" (pageChanged)="currentPageChanged($event)"-->
+                    <!--[maxSize]="maxSize"-->
+        <!--&gt;</pagination>-->
+        <!--<br>-->
+        <!--<button type="button" class="btn btn-info" (click)="setCurrentPage(2)">Set the current page <span class="badge">to: 2</span></button> <br>-->
+
+        <!--<br>-->
+    <!--</div>-->
+    <!--<div class="form-group" style="float: left">-->
+        <!--<h4>Angular 2 pagination</h4>-->
+        <!--<pager [totalItems]="totalResults" [(ngModel)]="currentPage" onPageChanged="currentPageChanged($event)"></pager>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+
+
+</body>
+</html>
