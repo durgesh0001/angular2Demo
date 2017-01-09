@@ -39,7 +39,7 @@ router.post('/delete', function(req, res, next) {
         if (!users) {
             return res.send(404);
         }
-        User.remove(function (err) {
+        users.remove(function (err) {
             if (err) {
                 return handleError(res, err);
             }
