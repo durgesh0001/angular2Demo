@@ -56,6 +56,24 @@ export class Httpservices
 
 
     }
+    deleteUser(id)
+    {
+        console.log(id);
+        var json=JSON.stringify(id);
+        var params='json='+json;
+        var headers=new Headers();
+        headers.append('Content-Type','application/x-www-form-urlencoded');
+
+
+        return this._http.post('/users/delete',
+            params,{
+                headers:headers,
+            }
+        ).map(res=>res.json())
+
+
+    }
+
 
 
 

@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../services/httpServices', 'angular2/common', '../pager.component', '../pagination.component', '../customPipes/searchPipes', '../services/dbServices'], function(exports_1, context_1) {
+System.register(['angular2/core', '../services/httpServices', 'angular2/common', '../pager.component', '../pagination.component', '../customPipes/searchPipes', '../services/dbServices', "angular2/router"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '../services/httpServices', 'angular2/common',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, httpServices_1, common_1, pager_component_1, pagination_component_1, searchPipes_1, dbServices_1;
+    var core_1, httpServices_1, common_1, pager_component_1, pagination_component_1, searchPipes_1, dbServices_1, router_1;
     var MyUsers;
     return {
         setters:[
@@ -34,13 +34,18 @@ System.register(['angular2/core', '../services/httpServices', 'angular2/common',
             },
             function (dbServices_1_1) {
                 dbServices_1 = dbServices_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
             MyUsers = (function () {
-                function MyUsers(_httpservice, builder, _dbservicee) {
+                function MyUsers(_httpservice, builder, _dbservicee, router, location) {
                     this._httpservice = _httpservice;
                     this.builder = builder;
                     this._dbservicee = _dbservicee;
+                    this.router = router;
+                    this.location = location;
                     this.result = [];
                     this.testdata = "";
                     this.searchbyName = "";
@@ -94,8 +99,17 @@ System.register(['angular2/core', '../services/httpServices', 'angular2/common',
                         user._id = this.id;
                         this._httpservice.updateUser(user)
                             .subscribe(function (data) { return _this.result = data.records; }, function (error) { return console.log(JSON.stringify(error)); }, function () { return console.log("finish"); });
-                        alert("record saved");
+                        alert("record updated");
+                        this.location.replaceState('/users');
+                        this.router.navigate(['Users']);
                     }
+                };
+                MyUsers.prototype.delete = function (id) {
+                    this._httpservice.deleteUser(id)
+                        .subscribe(function (data) { return data.records; }, function (error) { return console.log(JSON.stringify(error)); }, function () { return console.log("finish"); });
+                    alert("record deleted");
+                    this.location.replaceState('/users');
+                    this.router.navigate(['Users']);
                 };
                 MyUsers.prototype.openmodel = function (data) {
                     //binding data to model value
@@ -125,7 +139,7 @@ System.register(['angular2/core', '../services/httpServices', 'angular2/common',
                         directives: [pagination_component_1.Pagination, pager_component_1.Pager, common_1.FORM_DIRECTIVES, common_1.CORE_DIRECTIVES],
                         providers: [httpServices_1.Httpservices, dbServices_1.dbService],
                     }), 
-                    __metadata('design:paramtypes', [httpServices_1.Httpservices, common_1.FormBuilder, dbServices_1.dbService])
+                    __metadata('design:paramtypes', [httpServices_1.Httpservices, common_1.FormBuilder, dbServices_1.dbService, router_1.Router, router_1.Location])
                 ], MyUsers);
                 return MyUsers;
             }());

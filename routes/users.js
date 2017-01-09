@@ -3,6 +3,8 @@ var express = require('express');
 var router = express.Router();
 var User = require('./user.model.js');
 var _ = require('lodash');
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -23,6 +25,27 @@ console.log(user)
     User.create(user, function(err, employees) {
         if(err) { console.log(err) }
         res.json(201,employees);
+    });
+});
+
+router.post('/delete', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    var id=JSON.parse(req.body.json);
+    User.findById(id, function (err, users) {
+        if (err) {
+            return handleError(res, err);
+        }
+        if (!users) {
+            return res.send(404);
+        }
+        User.remove(function (err) {
+            if (err) {
+                return handleError(res, err);
+            }
+            console.log("deleted")
+            return res.send(204);
+        });
     });
 });
 router.post('/update', function(req, res, next) {

@@ -51,6 +51,16 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], fun
                         headers: headers,
                     }).map(function (res) { return res.json(); });
                 };
+                Httpservices.prototype.deleteUser = function (id) {
+                    console.log(id);
+                    var json = JSON.stringify(id);
+                    var params = 'json=' + json;
+                    var headers = new http_2.Headers();
+                    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+                    return this._http.post('/users/delete', params, {
+                        headers: headers,
+                    }).map(function (res) { return res.json(); });
+                };
                 Httpservices = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [http_1.Http])

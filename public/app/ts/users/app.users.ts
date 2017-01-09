@@ -103,6 +103,20 @@ export class MyUsers {
 
         }
     }
+
+    delete(id)
+    {
+        this._httpservice.deleteUser(id)
+            .subscribe(
+                data =>data.records,
+                error => console.log(JSON.stringify(error)),
+                () => console.log("finish")
+            )
+        alert("record deleted");
+        this.location.replaceState('/users');
+        this.router.navigate(['Users']);
+
+    }
     openmodel(data)
     {
         //binding data to model value
