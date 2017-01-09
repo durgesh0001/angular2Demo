@@ -19,7 +19,7 @@ import {Login} from './Login';
 //Routing
 
 @RouteConfig([
-    {path: '/users', name: 'Users', component:MyUsers},
+    {path: '/users', name: 'Userlist', component:MyUsers},
     {path: '/add', name: 'Add', component: AddUsers},
     {path: '/', name: 'Users', component:MyUsers,useAsDefault:true}
 

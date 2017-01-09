@@ -98,8 +98,7 @@ export class MyUsers {
                     () => console.log("finish")
                 )
             alert("record updated");
-            this.location.replaceState('/users');
-            this.router.navigate(['Users']);
+            this.router.navigate(['Userlist']);
 
         }
     }
@@ -113,8 +112,7 @@ export class MyUsers {
                 () => console.log("finish")
             )
         alert("record deleted");
-        this.location.replaceState('/users');
-        this.router.navigate(['Users']);
+        this.router.navigate(['Userlist']);
 
     }
     openmodel(data)

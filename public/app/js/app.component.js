@@ -41,7 +41,7 @@ System.register(['angular2/core', 'angular2/router', './users/app.users', './use
                         templateUrl: 'app/ts/app.component.html',
                     }),
                     router_1.RouteConfig([
-                        { path: '/users', name: 'Users', component: app_users_1.MyUsers },
+                        { path: '/users', name: 'Userlist', component: app_users_1.MyUsers },
                         { path: '/add', name: 'Add', component: app_addUsers_1.AddUsers },
                         { path: '/', name: 'Users', component: app_users_1.MyUsers, useAsDefault: true }
                     ]), 
