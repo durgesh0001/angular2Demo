@@ -98,7 +98,8 @@ export class MyUsers {
                     () => console.log("finish")
                 )
             alert("record updated");
-            this.router.navigate(['Add']);
+            this.router.navigate(['Users']);
+
 
         }
     }
@@ -112,7 +113,7 @@ export class MyUsers {
                 () => console.log("finish")
             )
         alert("record deleted");
-        this.router.navigate(['Add']);
+        this.router.navigate(['Users']);
 
     }
     openmodel(data)
