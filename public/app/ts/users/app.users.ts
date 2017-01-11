@@ -129,6 +129,7 @@ export class MyUsers {
 
     getUsersRecords()
     {
+        this.result = [];
         // this._dbservicee.list().then(allDoc => {
         //     this.result=allDoc.rows;
         //     console.log(this.result);

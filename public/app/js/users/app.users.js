@@ -119,12 +119,13 @@ System.register(['angular2/core', '../services/httpServices', 'angular2/common',
                     this.id = data._id;
                 };
                 MyUsers.prototype.getUsersRecords = function () {
+                    var _this = this;
+                    this.result = [];
                     // this._dbservicee.list().then(allDoc => {
                     //     this.result=allDoc.rows;
                     //     console.log(this.result);
                     //     return this.result;
                     // });
-                    var _this = this;
                     this._httpservice.getUser()
                         .subscribe(function (data) { return _this.result = data; }, function (error) { return console.log(JSON.stringify(error)); }, function () { return console.log("finish"); });
                     return 1;
