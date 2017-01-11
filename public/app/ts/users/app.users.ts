@@ -98,7 +98,7 @@ export class MyUsers {
                     () => console.log("finish")
                 )
             alert("record updated");
-            this.router.navigate(['Users']);
+            this.getUsersRecords();
 
 
         }
@@ -114,7 +114,7 @@ export class MyUsers {
             )
 
         alert("record deleted");
-        this.router.navigate(['Users']);
+        this.getUsersRecords();
 
     }
     openmodel(data)

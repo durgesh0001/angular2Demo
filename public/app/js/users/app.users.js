@@ -100,14 +100,14 @@ System.register(['angular2/core', '../services/httpServices', 'angular2/common',
                         this._httpservice.updateUser(user)
                             .subscribe(function (data) { return _this.result = data.records; }, function (error) { return console.log(JSON.stringify(error)); }, function () { return console.log("finish"); });
                         alert("record updated");
-                        this.router.navigate(['Users']);
+                        this.getUsersRecords();
                     }
                 };
                 MyUsers.prototype.delete = function (id) {
                     this._httpservice.deleteUser(id)
                         .subscribe(function (data) { return data.records; }, function (error) { return console.log(JSON.stringify(error)); }, function () { return console.log("finish"); });
                     alert("record deleted");
-                    this.router.navigate(['Users']);
+                    this.getUsersRecords();
                 };
                 MyUsers.prototype.openmodel = function (data) {
                     //binding data to model value
