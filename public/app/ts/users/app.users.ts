@@ -98,6 +98,7 @@ export class MyUsers {
                     () => console.log("finish")
                 )
             alert("record updated");
+            this.router.navigateByUrl('/DummyComponent', true);
             this.router.navigate(['Users']);
 
 
@@ -112,7 +113,9 @@ export class MyUsers {
                 error => console.log(JSON.stringify(error)),
                 () => console.log("finish")
             )
+
         alert("record deleted");
+        this.router.navigateByUrl('/DummyComponent', true);
         this.router.navigate(['Users']);
 
     }
