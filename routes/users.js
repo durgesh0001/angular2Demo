@@ -23,10 +23,8 @@ router.post('/login', function(req, res, next) {
     var user=JSON.parse(req.body.json);
     console.log(user)
     User.find({email:user.email,password:user.password}, function (err, employees) {
+     return res.json({data:employees});
 
-        if(!employees) { res.json({status:0})
-        }
-        return res.json({data:employees,status:1});
     });
 });
 
