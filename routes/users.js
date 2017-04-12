@@ -16,6 +16,19 @@ router.get('/', function(req, res, next) {
         return res.json(employees);
     });
 });
+/* GET users listing. */
+router.get('/login', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    var user=JSON.parse(req.body.json);
+    console.log(user)
+    User.find({email:user.email,password:user.password}, function (err, employees) {
+
+        if(!employees) { res.json({status:0})
+        }
+        return res.json({data:employees,status:1});
+    });
+});
 
 router.post('/add', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
