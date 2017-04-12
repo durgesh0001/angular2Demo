@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
     });
 });
 /* GET users listing. */
-router.get('/login', function(req, res, next) {
+router.post('/login', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     var user=JSON.parse(req.body.json);
