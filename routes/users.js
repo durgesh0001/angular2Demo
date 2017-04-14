@@ -74,7 +74,7 @@ router.post('/update', function(req, res, next) {
         });
     });
 });
-router.post('/upload',function(req,res){
+router.get('/upload',function(req,res){
     var multiparty = require('multiparty');
     var form = new multiparty.Form();
 
