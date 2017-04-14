@@ -1,35 +1,35 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/root/.nvm/versions/node/v4.0.0/bin/node',
-1 verbose cli   '/root/.nvm/versions/node/v4.0.0/bin/npm',
+1 verbose cli [ '/root/.nvm/versions/node/v7.0.0/bin/node',
+1 verbose cli   '/root/.nvm/versions/node/v7.0.0/bin/npm',
 1 verbose cli   'start' ]
-2 info using npm@3.10.5
-3 info using node@v4.0.0
+2 info using npm@3.10.8
+3 info using node@v7.0.0
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info lifecycle angular2project@0.0.0~prestart: angular2project@0.0.0
 6 silly lifecycle angular2project@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle angular2project@0.0.0~start: angular2project@0.0.0
 8 verbose lifecycle angular2project@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle angular2project@0.0.0~start: PATH: /root/.nvm/versions/node/v4.0.0/lib/node_modules/npm/bin/node-gyp-bin:/var/www/html/systematixproject/angular2Demo/node_modules/.bin:/root/.nvm/versions/node/v4.0.0/bin:/usr/local/heroku/bin:/root/.nvm/versions/node/v4.0.0/bin:/root/Downloads/android-sdk-linux:/root/Downloads/android-sdk-linux/platform-tools:/root/Downloads/android-sdk-linux:/root/Downloads/android-sdk-linux/platform-tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/usr/share/ant/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/usr/share/ant/bin
+9 verbose lifecycle angular2project@0.0.0~start: PATH: /root/.nvm/versions/node/v7.0.0/lib/node_modules/npm/bin/node-gyp-bin:/var/www/html/systematixproject/angular2Demo/node_modules/.bin:/usr/local/heroku/bin:/root/.nvm/versions/node/v7.0.0/bin:/root/Downloads/android-sdk-linux:/root/Downloads/android-sdk-linux/platform-tools:/usr/local/heroku/bin:/root/Downloads/android-sdk-linux:/root/Downloads/android-sdk-linux/platform-tools:/usr/local/heroku/bin:/root/Downloads/android-sdk-linux:/root/Downloads/android-sdk-linux/platform-tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/share/ant/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/usr/share/ant/bin:/usr/share/ant/bin
 10 verbose lifecycle angular2project@0.0.0~start: CWD: /var/www/html/systematixproject/angular2Demo
 11 silly lifecycle angular2project@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
 12 silly lifecycle angular2project@0.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle angular2project@0.0.0~start: Failed to exec start script
 14 verbose stack Error: angular2project@0.0.0 start: `node ./bin/www`
 14 verbose stack Exit status 1
-14 verbose stack     at EventEmitter.<anonymous> (/root/.nvm/versions/node/v4.0.0/lib/node_modules/npm/lib/utils/lifecycle.js:242:16)
-14 verbose stack     at emitTwo (events.js:87:13)
-14 verbose stack     at EventEmitter.emit (events.js:172:7)
-14 verbose stack     at ChildProcess.<anonymous> (/root/.nvm/versions/node/v4.0.0/lib/node_modules/npm/lib/utils/spawn.js:40:14)
-14 verbose stack     at emitTwo (events.js:87:13)
-14 verbose stack     at ChildProcess.emit (events.js:172:7)
-14 verbose stack     at maybeClose (internal/child_process.js:817:16)
-14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+14 verbose stack     at EventEmitter.<anonymous> (/root/.nvm/versions/node/v7.0.0/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (/root/.nvm/versions/node/v7.0.0/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:877:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid angular2project@0.0.0
 16 verbose cwd /var/www/html/systematixproject/angular2Demo
 17 error Linux 3.13.0-49-generic
-18 error argv "/root/.nvm/versions/node/v4.0.0/bin/node" "/root/.nvm/versions/node/v4.0.0/bin/npm" "start"
-19 error node v4.0.0
-20 error npm  v3.10.5
+18 error argv "/root/.nvm/versions/node/v7.0.0/bin/node" "/root/.nvm/versions/node/v7.0.0/bin/npm" "start"
+19 error node v7.0.0
+20 error npm  v3.10.8
 21 error code ELIFECYCLE
 22 error angular2project@0.0.0 start: `node ./bin/www`
 22 error Exit status 1
