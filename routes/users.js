@@ -74,6 +74,30 @@ router.post('/update', function(req, res, next) {
         });
     });
 });
+router.post('/upload',function(req,res){
+    var multiparty = require('multiparty');
+    var form = new multiparty.Form();
+
+    var fs= require("fs");
+    form.parse(req, function(err, fields, files) {
+        var img=files.image[0];
+        var myname= randomstring.generate(3)+img.originalFilename;
+        var newpath1="http://systematixindiademo1.herokuapp.com/images/"+myname;
+        res.json({status: 1, message: 'success','path':newpath1});
+
+        fs.readFile(img.path,function (err,data)
+        {
+            var path1="./public/images/"+myname;
+            fs.writeFile(path1, data,function(error) {
+                if (error) throw err;
+                console.log('It\'s saved!');
+            });
+
+        });
+
+    });
+
+});
 function handleError(res, err) {
     return res.send(500, err);
 }
