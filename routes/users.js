@@ -63,7 +63,6 @@ router.post('/update', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     var user=JSON.parse(req.body.json);
-
     User.findById(user._id, function (err, Users) {
         if (err) { return handleError(res, err); }
         if(!Users) { return res.send(404); }
@@ -75,6 +74,8 @@ router.post('/update', function(req, res, next) {
     });
 });
 router.post('/upload',function(req,res){
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     var multiparty = require('multiparty');
     var form = new multiparty.Form();
 
