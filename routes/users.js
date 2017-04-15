@@ -78,6 +78,7 @@ router.post('/updatebyemail', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     var user=JSON.parse(req.body.json);
+    console.log(user);
     User.update({email:user.email},{$set:{profile_picture:user.profile_picture}}, function (err, Users) {
         if (err) { return handleError(res, err); }
         if(!Users) { return res.send(404); }
