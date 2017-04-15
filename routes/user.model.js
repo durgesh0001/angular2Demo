@@ -8,6 +8,7 @@ var UserSchema = new Schema({
     email: { type: String, lowercase: true },
     password: String,
     username: String,
+    profile_picture:String,
 });
 
 module.exports = mongoose.model('User', UserSchema);
