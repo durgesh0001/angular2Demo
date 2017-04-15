@@ -79,8 +79,6 @@ router.get('/upload', function(req, res, next) {
     res.render('upload',{page_title:"Add Customers-Node.js"});
 });
 router.post('/upload',function(req,res){
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     var multiparty = require('multiparty');
     var form = new multiparty.Form();
 
@@ -97,6 +95,7 @@ router.post('/upload',function(req,res){
             fs.writeFile(path1, data,function(error) {
                 if (error) throw err;
                 console.log('It\'s saved!');
+
             });
 
         });
