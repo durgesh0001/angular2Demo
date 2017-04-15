@@ -1,6 +1,7 @@
 
 var express = require('express');
 var router = express.Router();
+var randomstring = require("randomstring");
 var User = require('./user.model.js');
 var _ = require('lodash');
 var mongoose = require('mongoose');
@@ -72,6 +73,10 @@ router.post('/update', function(req, res, next) {
             return res.json(200, Users);
         });
     });
+});
+router.get('/upload', function(req, res, next) {
+    // tickets.push("hello");
+    res.render('upload',{page_title:"Add Customers-Node.js"});
 });
 router.post('/upload',function(req,res){
     res.header("Access-Control-Allow-Origin", "*");
