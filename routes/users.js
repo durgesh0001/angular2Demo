@@ -74,6 +74,18 @@ router.post('/update', function(req, res, next) {
         });
     });
 });
+router.post('/updatebyemail', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    var user=JSON.parse(req.body.json);
+    User.update({email:user.email},{$set:{profile_picture:user.profile_picture}}, function (err, Users) {
+        if (err) { return handleError(res, err); }
+        if(!Users) { return res.send(404); }
+        console.log(Users);
+        return res.json(200, Users);
+
+    });
+});
 router.get('/upload', function(req, res, next) {
     // tickets.push("hello");
     res.render('upload',{page_title:"Add Customers-Node.js"});
