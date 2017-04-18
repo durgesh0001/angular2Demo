@@ -34,10 +34,23 @@ router.post('/add', function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     var user=JSON.parse(req.body.json);
 console.log(user)
-    User.create(user, function(err, employees) {
-        if(err) { console.log(err) }
-        res.json(201,employees);
+    User.find({email:user.email}, function(errr, employeerecord) {
+        if(errr) { console.log(errr) }
+      if(employeerecord.length > 0)
+      {
+          var array = [];
+          res.json(201,array);
+
+      }
+      else
+      {
+          User.create(user, function(err, employees) {
+              if(err) { console.log(err) }
+              res.json(201,employees);
+          });
+      }
     });
+
 });
 
 router.post('/delete', function(req, res, next) {
